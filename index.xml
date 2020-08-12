@@ -2,20 +2,20 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Alex Makes Games</title>
-    <link>http://aesteroidblues.github.io/</link>
+    <link>https://www.alexmakes.games/</link>
     <description>Recent content on Alex Makes Games</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     
-	<atom:link href="http://aesteroidblues.github.io/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://www.alexmakes.games/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>About</title>
-      <link>http://aesteroidblues.github.io/about/</link>
+      <link>https://www.alexmakes.games/about/</link>
       <pubDate>Sun, 09 Aug 2020 18:20:03 -0700</pubDate>
       
-      <guid>http://aesteroidblues.github.io/about/</guid>
+      <guid>https://www.alexmakes.games/about/</guid>
       <description>Hi there, I&amp;rsquo;m Alex. I&amp;rsquo;m a software engineer at Xbox Game Studios where I work on Forza Motorsport. In the past, I worked on the cannibalistic RTS Tooth &amp;amp; Tail, and the VR strategy game Skylight.
 I&amp;rsquo;m a San Diego native living in Washington and I hold a B.S. in Computer Science from the University of California, San Diego</description>
     </item>
