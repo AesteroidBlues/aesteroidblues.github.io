@@ -1,0 +1,56 @@
+{
+    "experience": {
+        "title": "Experience",
+        "jobs": [
+            {
+                "title": "Senior Software Engineer",
+                "company": "Microsoft - Turn 10 Studios",
+                "location": "Remote",
+                "dates": "2022 - Present",
+                "description": ""
+            },
+            {
+                "title": "Software Engineer II",
+                "company": "Microsoft - Turn 10 Studios",
+                "location": "Redmond, WA / Remote",
+                "dates": "2019 - 2022",
+                "description": ""
+            },
+            {
+                "title": "Software Engineer II",
+                "company": "Microsoft - Xbox Live",
+                "location": "Redmond, WA",
+                "dates": "2017 - 2019",
+                "description": ""
+            },
+            {
+                "title": "Freelance Programmer",
+                "company": "Self-Employed",
+                "location": "San Diego, CA",
+                "dates": "2016-2017",
+                "description": ""
+            },
+            {
+                "title": "Software Engineer",
+                "company": "Pocketwatch Games",
+                "location": "San Diego, CA",
+                "dates": "2014-2016",
+                "description": ""
+            },
+            {
+                "title": "Solutions Engineer",
+                "company": "Provide Commerce",
+                "location": "San Diego, CA",
+                "dates": "2014",
+                "description": ""
+            },
+            {
+                "title": "Programmer Analyst",
+                "company": "UC San Diego Division of Biolomedical Informatics",
+                "location": "San Diego, CA",
+                "dates": "2012-2014",
+                "description": ""
+            }
+        ]
+    }
+}

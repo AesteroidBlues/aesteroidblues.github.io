@@ -3,13 +3,31 @@ title: Home
 layout: layouts/base.njk
 ---
 
-<div class="space-y-8">
+<div class="space-y-8 min-h-max">
+    <img class="ml-8 float-right object-contain h-96 w-96" src="/img/selfie.jpeg" alt="Selfie of the author with his mountain bike">
+    <p>
+        My name is Alex Ferbrache and I'm a senior software engineer specializing in gameplay programming.
+        I'm currently working remotely from San Diego, California for 
+        <a class="link" href="https://turn10studios.com/">Turn 10 Studios</a> on 
+        <a class="link" href="https://forza.net/motorsport">Forza Motorsport</a>.
+    </p>
+    <p>
+        I've been building software for over 12 years, and I've been a professional game developer for 9 of those years.
+        Since graduating from UC San Diego with a BS in Computer Science, I've worked on a wide variety of software projects
+        including biomedical data processing, E-Commerce, game platforms, and indie and AAA titles.
+    </p>
+    <p>
+        Outside of work I enjoy woodworking, mountain biking, and hanging out with my wife and our daughter.
+    </p>
 
-  <div>
-    <p>This is the project's home page. There is a little styling for demonstration purposes only.</p>
-    <p>The navigation might as well be a sidebar, or a floating menu. This template provides the structure, make it yours ✌️</p>
-  </div>
+    {% include "components/links.njk" %}
+</div>
 
+<div class="flex justify-center mt-8">
+    <div class="text-center">
+        <p>Latest from my blog</p>
 
-  <a href="https://github.com/tomreinert/minimal-11ty-tailwind-starter" class="inline-block uppercase rounded bg-blue-600 hover:bg-blue-700 px-4 py-2 text-white text-sm">Download on github</a>
+        {% set post = collections.posts[0] %}
+        <h3 class="text-2xl"><a class="link" href="{{ post.url | url }}">{{post.data.title}}</a></h3>
+    </div>
 </div>

@@ -1,20 +1,19 @@
 {
     "items": [
         {
-            "name": "test@example.com",
-            "link": "mailto:test@example.com"
+            "name": "alex@alexmakes.games",
+            "link": "mailto:alex@alexmakes.games",
+            "class": "fa-regular fa-paper-plane"
         },
         {
-            "name": "Twitter",
-            "link": "https://twitter.com/…"
+            "name": "Mastodon",
+            "link": "https://mastodon.gamedev.place/@alex",
+            "class": "fa-brands fa-mastodon"
         },
         {
             "name": "GitHub",
-            "link": "https://github.com/…"
-        },
-        {
-            "name": "CodePen",
-            "link": "https://codepen.io/…"
+            "link": "https://github.com/AesteroidBlues",
+            "class": "fa-brands fa-github"
         }
     ]
 }
