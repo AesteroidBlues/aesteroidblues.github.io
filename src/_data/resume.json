@@ -7,6 +7,8 @@
                 "company": "Microsoft - Turn 10 Studios",
                 "location": "Remote",
                 "dates": "2022 - Present",
+                "logo": "t10_logo_white.svg",
+                "logo_alt": "Turn 10 Studios Logo",
                 "description": ""
             },
             {
@@ -14,6 +16,8 @@
                 "company": "Microsoft - Turn 10 Studios",
                 "location": "Redmond, WA / Remote",
                 "dates": "2019 - 2022",
+                "logo": "t10_logo_white.svg",
+                "logo_alt": "Turn 10 Studios Logo",
                 "description": ""
             },
             {
@@ -21,6 +25,8 @@
                 "company": "Microsoft - Xbox Live",
                 "location": "Redmond, WA",
                 "dates": "2017 - 2019",
+                "logo": "xbox_logo.svg",
+                "logo_alt": "Xbox Logo",
                 "description": ""
             },
             {
@@ -28,6 +34,7 @@
                 "company": "Self-Employed",
                 "location": "San Diego, CA",
                 "dates": "2016-2017",
+                "logo": "",
                 "description": ""
             },
             {
@@ -35,13 +42,16 @@
                 "company": "Pocketwatch Games",
                 "location": "San Diego, CA",
                 "dates": "2014-2016",
-                "description": ""
+                "logo": "pwg-logo.svg",
+                "logo_alt": "Pocketwatch Games Logo",
+                "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum."
             },
             {
                 "title": "Solutions Engineer",
                 "company": "Provide Commerce",
                 "location": "San Diego, CA",
                 "dates": "2014",
+                "logo": "",
                 "description": ""
             },
             {
@@ -49,7 +59,23 @@
                 "company": "UC San Diego Division of Biolomedical Informatics",
                 "location": "San Diego, CA",
                 "dates": "2012-2014",
+                "logo": "ucsd_seal.svg",
+                "logo_alt": "Seal of the University of California, San Diego",
                 "description": ""
+            }
+        ],
+        "credits": [
+            {
+                "title": "Forza Motorsport",
+                "year": "2023",
+                "credit": "Senior Software Engineer",
+                "logo": "forza_logo.png"
+            },
+            {
+                "title": "Tooth and Tail",
+                "year": "2017",
+                "credit": "Additional Programming",
+                "logo": "tnt_logo.png"
             }
         ]
     }

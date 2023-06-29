@@ -6,10 +6,21 @@
     "description": ""
 }, #}
 
-<section class="prose">
-    <h3>{{ job.title }}</h3>
-    <h4>{{ job.company }}</h4>
-    <h5>{{ job.location }}</h5>
-    <h6>{{ job.dates }}</h6>
-    <p>{{ job.description }}</p>
-</section>
+<div>
+    <div class="flex grid-col-2 space-x-4">
+        <div>
+            {% if job.logo %}
+            <img class="mt-2 h-12 w-12 fill-black" src="/img/{{job.logo}}" alt="{{job.logo_alt}}">
+            {% else %}
+            <p class="w-12">&nbsp</p>
+            {% endif %}
+        </div>
+        <div>
+            <h1 class="text-lg font-semibold">{{ job.title }}</h3>
+            <h2 class="text-lg">{{ job.company }}</h2>
+            <h3 class="text-gray-700">{{ job.location }}</h3>
+            <h4 class="text-gray-500">{{ job.dates }}</h4>
+        </div>
+    </div>
+    <p class="ml-16 mt-4">{{ job.description }}</p>
+</div>

@@ -8,6 +8,8 @@ eleventyNavigation:
 ---
 
 {% set experience = resume.experience %}
+<section class="flex-col justify-center space-y-6">
 {% for job in experience.jobs %}
 {% include "components/job.njk" %}
 {% endfor %}
+</section>
