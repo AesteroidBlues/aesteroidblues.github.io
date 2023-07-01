@@ -21,6 +21,11 @@ module.exports = function(eleventyConfig) {
     
     eleventyConfig.setLibrary("md", markdownLib);
 
+    eleventyConfig.addShortcode("year", () => {
+        let date = new Date();
+        return date.getFullYear().toString();
+    });
+
   const {
     DateTime
   } = require("luxon");
