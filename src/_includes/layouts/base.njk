@@ -3,6 +3,9 @@
   <head>
     <title>{{ title }}</title>
      <link rel="stylesheet" type="text/css" href="/assets/main.css" />
+     <meta property="og:title" content="{{ title }}"/>
+     <meta property="og:description" content="{{ description }}" />
+     <meta property="og:image" content="https://www.alexmakes.games/img/hero.png" />
   </head>
   <body>
     {% include "../components/navigation.njk" %}
