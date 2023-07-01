@@ -1,12 +1,25 @@
 const eleventyNavigationPlugin = require("@11ty/eleventy-navigation");
-
+const markdownIt = require("markdown-it");
+const markdownItAttrs = require("markdown-it-attrs");
 
 module.exports = function(eleventyConfig) {
 
-  eleventyConfig.addPlugin(eleventyNavigationPlugin);
+    eleventyConfig.addPlugin(eleventyNavigationPlugin);
     eleventyConfig.addPassthroughCopy('src/img');
     eleventyConfig.addPassthroughCopy('src/blog/**/*.png');
 
+    eleventyConfig.addPassthroughCopy('src/CNAME');
+
+    const mdOptions = {
+        html: true,
+        breaks: true,
+        linkify: true,
+    };
+    const markdownLib = markdownIt(mdOptions)
+        .use(markdownItAttrs)
+        .disable("code");
+    
+    eleventyConfig.setLibrary("md", markdownLib);
 
   const {
     DateTime

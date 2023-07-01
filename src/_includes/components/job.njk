@@ -12,7 +12,7 @@
             {% if job.logo %}
             <img class="mt-2 h-12 w-12 fill-black" src="/img/{{job.logo}}" alt="{{job.logo_alt}}">
             {% else %}
-            <p class="w-12">&nbsp</p>
+            <p class="w-12"><i class="fa-solid fa-keyboard text-4xl mt-1"></i></p>
             {% endif %}
         </div>
         <div>
@@ -22,5 +22,9 @@
             <h4 class="text-gray-500">{{ job.dates }}</h4>
         </div>
     </div>
-    <p class="ml-16 mt-4">{{ job.description }}</p>
+    <ul class="list-disc ml-4 space-y-1">
+    {% for desc in job.description %}
+    <li class="ml-16 mt-4">{{ desc }}</li>
+    {% endfor %}
+    </ul>
 </div>

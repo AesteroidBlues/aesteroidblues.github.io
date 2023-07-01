@@ -3,17 +3,20 @@
         {
             "name": "alex@alexmakes.games",
             "link": "mailto:alex@alexmakes.games",
-            "class": "fa-regular fa-paper-plane"
+            "class": "fa-regular fa-paper-plane",
+            "rel": ""
         },
         {
             "name": "Mastodon",
             "link": "https://mastodon.gamedev.place/@alex",
-            "class": "fa-brands fa-mastodon"
+            "class": "fa-brands fa-mastodon",
+            "rel": "me"
         },
         {
             "name": "GitHub",
             "link": "https://github.com/AesteroidBlues",
-            "class": "fa-brands fa-github"
+            "class": "fa-brands fa-github",
+            "rel": ""
         }
     ]
 }

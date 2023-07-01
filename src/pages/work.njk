@@ -6,10 +6,22 @@ eleventyNavigation:
   key: Work
   order: 0
 ---
-
 {% set experience = resume.experience %}
-<section class="flex-col justify-center space-y-6">
+
+<h2 a="#jobs" class="text-2xl">Work Experience</h2>
+<hr class="mt-2 mb-2">
+<section a="#work" class="flex-col justify-center space-y-6 mb-12">
 {% for job in experience.jobs %}
 {% include "components/job.njk" %}
 {% endfor %}
+</section>
+
+<h2 a="#credits" class="text-2xl">Game Credits</h2>
+<hr class="mt-2 mb-2">
+<section class="flex flex-col space-y-8">
+    {# <div class="min-w-fit"> #}
+        {% for credit in experience.credits %}
+        {% include "components/credit.njk" %}
+        {% endfor %}
+    {# </div> #}
 </section>
