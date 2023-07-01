@@ -11,7 +11,7 @@
                 "logo_alt": "Turn 10 Studios Logo",
                 "description": [
                     "Technical lead for a small strike team focused on polishing the game for ship. Worked across the team to address ship quality issues such as hitches, screen flashes, and UI transition problems.",
-                    "Extended previously built progression systems to easily add achievements to the game. Supported external partners in implementing the achievements using the new system.",
+                    "Extended previously built progression systems to easily add Xbox and Steam achievements to the game. Supported external partners in implementing the achievements using the new system.",
                     "Worked with the services team to optimize on-track server calls to help ensure scalability for worldwide release."
                 ]
             },
@@ -23,9 +23,9 @@
                 "logo": "t10_logo_white.svg",
                 "logo_alt": "Turn 10 Studios Logo",
                 "description": [
-                    "Drove technical designs and discussions around player progression and built game systems that interact with the services backend to track progression, game challenges, and rewarding in-game currency and items.",
+                    "Drove technical designs and discussions around player progression. Built game systems that interact with the services backend to track progression, game challenges, and rewarding in-game currency and items.",
                     "Prototyped player customization of the Forza home space that ultimately did not ship. Worked across design, cinematics, UI, game systems, and rendering to deliver a novel approach to the player's home space.",
-                    "Worked with the UI art lead to prototype his vision for novel internal UI tooling that makes handoffs between the UI art team and UI developers easier. Prepared and documented system for handoff for continued development to external partners"
+                    "Worked with the UI art lead to prototype his vision for novel internal UI tooling that makes handoffs between the UI art team and UI developers easier. Prepared and documented system for handoff for continued development to external partners."
                 ]
             },
             {
@@ -84,7 +84,7 @@
                 "logo": "ucsd_seal.svg",
                 "logo_alt": "Seal of the University of California, San Diego",
                 "description": [
-                    "Co-Author: “MAGI: a Node.js web service for fast microRNA-Seq analysis in a GPU infrastructure.” Bioinformatics 2014; 30 (19): 2826-2827"
+                    "Co-Author: “MAGI: a Node.js web service for fast microRNA-Seq analysis in a GPU infrastructure.” Bioinformatics 2014; 30 (19): 2826-2827."
                 ]
             }
         ],
