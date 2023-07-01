@@ -9,6 +9,7 @@ module.exports = function(eleventyConfig) {
     eleventyConfig.addPassthroughCopy('src/blog/**/*.png');
 
     eleventyConfig.addPassthroughCopy('src/CNAME');
+    eleventyConfig.addPassthroughCopy('src/favicon.ico');
 
     const mdOptions = {
         html: true,
