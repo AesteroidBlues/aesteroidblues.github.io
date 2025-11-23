@@ -1,34 +1,20 @@
 {
-  "name": "eleventy",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "name": "src",
+  "type": "module",
+  "version": "0.0.1",
   "scripts": {
-    "clean": "rimraf _site",
-    "serve:webpack": "webpack --mode development --watch",
-    "serve:eleventy": "ELEVENTY_ENV=development eleventy --serve",
-    "serve": "npm-run-all clean --parallel serve:*",
-    "build:webpack": "webpack --mode production",
-    "build:eleventy": "ELEVENTY_ENV=production eleventy",
-    "build": "NODE_ENV=production run-s clean build:*"
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "astro": "astro"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "devDependencies": {
-    "@11ty/eleventy": "^1.0.1",
-    "@11ty/eleventy-navigation": "^0.1.6",
-    "@tailwindcss/typography": "^0.5.9",
-    "autoprefixer": "^10.4.7",
-    "css-loader": "^6.7.1",
-    "markdown-it-attrs": "^4.1.6",
-    "mini-css-extract-plugin": "^0.11.3",
-    "npm-run-all": "^4.1.5",
-    "postcss": "^8.4.14",
-    "postcss-loader": "^4.3.0",
-    "rimraf": "^3.0.2",
-    "tailwindcss": "^3.0.24",
-    "webpack": "^5.72.1",
-    "webpack-cli": "^4.9.2"
+  "dependencies": {
+    "@astrojs/mdx": "^4.3.12",
+    "@astrojs/rss": "^4.0.14",
+    "@astrojs/sitemap": "^3.6.0",
+    "@tailwindcss/vite": "^4.1.17",
+    "astro": "^5.16.0",
+    "sharp": "^0.34.3",
+    "tailwindcss": "^4.1.17"
   }
 }

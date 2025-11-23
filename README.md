@@ -1,124 +1,62 @@
-# Minimal 11ty Starter
+# Astro Starter Kit: Blog
 
-
-![Image showing the demo website](https://user-images.githubusercontent.com/3286735/100862193-26c1bd00-3493-11eb-8120-61a0d822588b.png)
-
-
-A *very* minimal [eleventy](https://11ty.io/) starter using [Tailwind CSS](https://tailwindcss.com/) for styling.
-
-It features a smart navigation component that sets active states automatically.
-
-For beginners and/or when you need a simple static site and don't want to duplicate your navigation header and set active states for the nth time.
-
-## Features
-🦴 As minimal as possible  
-⚡️ Active states in the navigation are automatically set based on the current url.  
-💨 Add a couple of lines to any page and it will appear in the navigation. (Check how to below)  
-🗓 A very simple blog structure because why not  
-🍪 Example for including json data on contact page  
-💜 Tailwind CSS
-
-
-### [Live Demo](https://clever-newton-cbb08a.netlify.app)  
-
----
-
-## Getting Started
-
-
-#### 1. Clone this repo
-
-```
-git clone git@github.com:tomreinert/minimal-11ty-tailwind-starter.git mysite
-```
-#### 2. Change into the working directory
-
-```
-cd mysite
+```sh
+npm create astro@latest -- --template blog
 ```
 
-#### 3. Install dependencies
+> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
 
-```
-npm install
-```
+Features:
 
-#### 4. Work locally
-Watches for changes and serves locally on http://localhost:8080
+- ✅ Minimal styling (make it your own!)
+- ✅ 100/100 Lighthouse performance
+- ✅ SEO-friendly with canonical URLs and OpenGraph data
+- ✅ Sitemap support
+- ✅ RSS Feed support
+- ✅ Markdown & MDX support
 
-```
-npm run serve
-```
+## 🚀 Project Structure
 
-#### 5. Create a production build
+Inside of your Astro project, you'll see the following folders and files:
 
-```
-npm run build
-```
-
-
-
-## How To: Navigation
-
-The top navigation is the only *feature* in this starter and lives in `/src/_includes/components/navigation.njk`.  
-
-It looks for the eleventyNavigation object in pages and adds them to the navigation bar. It also checks whether the site's url is in the currently opened url and highlights the navigation item accordingly. This even works for subpages. So if you're on `/blog/post/` the **Blog** nav item will still be active.
-
-
-### Adding links to the navigation
-Add the `eleventyNavigation` object to any page and it will appear in the navigation. Optionally set the order of your items.
-Check the [11ty docs](https://www.11ty.dev/docs/plugins/navigation/) for more information about the navigation plugin.
-
-```
----
-eleventyNavigation:
-  key: Your Page Name
-  order: 1
----
+```text
+├── public/
+├── src/
+│   ├── components/
+│   ├── content/
+│   ├── layouts/
+│   └── pages/
+├── astro.config.mjs
+├── README.md
+├── package.json
+└── tsconfig.json
 ```
 
+Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
 
-### Changing the navigation item styles
-The script in `/_includes/components/navigation.njk` checks if a navigation item is active and styles it accordingly.
-Let's dissect the code:
+There's nothing special about `src/components/`, but that's where we like to put any Astro/React/Vue/Svelte/Preact components.
 
-```
-<a
- href="{{ entry.url }}"
+The `src/content/` directory contains "collections" of related Markdown and MDX documents. Use `getCollection()` to retrieve posts from `src/content/blog/`, and type-check your frontmatter using an optional schema. See [Astro's Content Collections docs](https://docs.astro.build/en/guides/content-collections/) to learn more.
 
- // Base styles for navigation items
- class="py-1 px-2 rounded mr-4 inline-block
+Any static assets, like images, can be placed in the `public/` directory.
 
- // Styles for the active navigation item
- {{'bg-white text-black' if entry.url in page.url
+## 🧞 Commands
 
- // Styles for default navigation item
- else 'text-gray-400 hover:text-gray-100'}}">
- {{ entry.title }}
-</a>
-```
+All commands are run from the root of the project, from a terminal:
 
+| Command                   | Action                                           |
+| :------------------------ | :----------------------------------------------- |
+| `npm install`             | Installs dependencies                            |
+| `npm run dev`             | Starts local dev server at `localhost:4321`      |
+| `npm run build`           | Build your production site to `./dist/`          |
+| `npm run preview`         | Preview your build locally, before deploying     |
+| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
+| `npm run astro -- --help` | Get help using the Astro CLI                     |
 
+## 👀 Want to learn more?
 
-## How To: Blog
+Check out [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
 
-Add a page in `_src/blog/posts` and it will appear in the post list.
+## Credit
 
-## Images
-
-Put your images into `_src/img` and add them to your markup like so:
-```
-<img src="/img/example-image.jpg">
-```
-
-
-
-## Credits
-
-[Bryan L. Robinson](https://bryanlrobinson.com/blog/using-nunjucks-if-expressions-to-create-an-active-navigation-state-in-11ty/) for explaining how to create the active navigation state
-
- https://statickit.com/guides/eleventy-tailwind - I set up the project according to this guide
-
- https://11ty.io/
-
- https://tailwindcss.com
+This theme is based off of the lovely [Bear Blog](https://github.com/HermanMartinus/bearblog/).
