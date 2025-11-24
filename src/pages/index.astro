@@ -4,89 +4,97 @@ import Footer from "../components/Footer.astro";
 import Header from "../components/Header.astro";
 import { SITE_TITLE, SITE_DESCRIPTION } from "../consts";
 import whatIDoData from "../data/WhatIDo.json";
+
+const today = new Date();
 ---
 
 <!doctype html>
 <html lang="en">
-	<head>
-		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
-	</head>
-	<body class="bg-white text-slate-900">
-		<Header />
-		<!-- Override global main width for this page to allow full width hero -->
-		<main class="!w-full !max-w-none !p-0">
-			<!-- Hero Section -->
-			<section class="w-full bg-slate-50 py-20 md:py-32">
-				<div
-					class="container mx-auto px-6 max-w-5xl flex flex-col-reverse md:flex-row items-center gap-12"
-				>
-					<!-- Text Content -->
-					<div class="flex-1 text-center md:text-left">
-						<h1
-							class="text-4xl md:text-6xl font-bold tracking-tight text-slate-900 mb-6"
-						>
-							Hi, I'm Alex. <br />
-							<span
-								class="bg-clip-text text-transparent bg-[image:var(--accent-gradient)]"
-								>Gameplay Programmer.</span
-							>
-						</h1>
-						<p
-							class="text-lg md:text-xl text-slate-600 mb-8 leading-relaxed max-w-2xl mx-auto md:mx-0"
-						>
-							I love bringing games to life through code.
-						</p>
-						<div
-							class="flex flex-col sm:flex-row gap-4 justify-center md:justify-start"
-						>
-						</div>
-					</div>
+    <head>
+        <BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
+    </head>
+    <body class="bg-white text-slate-900">
+        <Header />
+        <!-- Override global main width for this page to allow full width hero -->
+        <main class="!w-full !max-w-none !p-0">
+            <!-- Hero Section -->
+            <section class="w-full bg-slate-50 py-20 md:py-32">
+                <div
+                    class="container mx-auto px-6 max-w-5xl flex flex-col-reverse md:flex-row items-center gap-12"
+                >
+                    <!-- Text Content -->
+                    <div class="flex-1 text-center md:text-left">
+                        <h1
+                            class="text-4xl md:text-6xl font-bold tracking-tight text-slate-900 mb-6"
+                        >
+                            Hi, I'm Alex. <br />
+                            <span
+                                class="bg-clip-text text-transparent bg-[image:var(--accent-gradient)]"
+                                >Gameplay Programmer.</span
+                            >
+                        </h1>
+                        <p
+                            class="text-lg md:text-xl text-slate-600 mb-8 leading-relaxed max-w-2xl mx-auto md:mx-0"
+                        >
+                            I love building games that delight players.
+                            With {today.getFullYear() - 2014} years of games industry experience I have a
+                            proven track record of delivering features from
+                            prototype to shipped product. I am an experienced
+                            collaborator on cross-functional teams and have
+                            substantial experience being effective in huge
+                            game engines and code bases.
+                        </p>
+                        <div
+                            class="flex flex-col sm:flex-row gap-4 justify-center md:justify-start"
+                        >
+                        </div>
+                    </div>
 
-					<!-- Profile Image -->
-					<div class="flex-1 flex justify-center md:justify-end">
-						<div class="relative w-64 h-64 md:w-100 md:h-100">
-							<div
-								class="absolute inset-0 bg-blue-200 rounded-full blur-2xl opacity-30 animate-pulse"
-							>
-							</div>
-							<img
-								src="/profile.jpg"
-								alt="Alex - Game Programmer"
-								class="relative w-full h-full object-cover rounded-2xl shadow-2xl rotate-3 hover:rotate-0 transition-transform duration-500 border-4 border-white"
-							/>
-						</div>
-					</div>
-				</div>
-			</section>
+                    <!-- Profile Image -->
+                    <div class="flex-1 flex justify-center md:justify-end">
+                        <div class="relative w-64 h-64 md:w-100 md:h-100">
+                            <div
+                                class="absolute inset-0 bg-blue-200 rounded-full blur-2xl opacity-30 animate-pulse"
+                            >
+                            </div>
+                            <img
+                                src="/profile.jpg"
+                                alt="Alex - Game Programmer"
+                                class="relative w-full h-full object-cover rounded-2xl shadow-2xl rotate-3 hover:rotate-0 transition-transform duration-500 border-4 border-white"
+                            />
+                        </div>
+                    </div>
+                </div>
+            </section>
 
-			<!-- Featured Section (Placeholder for future projects) -->
-			<section class="py-20 bg-white">
-				<div class="container mx-auto px-6 max-w-7xl">
-					<h2
-						class="text-3xl font-bold text-slate-900 mb-12 text-center"
-					>
-						What I Do
-					</h2>
-					<div class="grid md:grid-cols-4 gap-8">
-						{
-							whatIDoData.map((item) => (
-								<div class="p-6 rounded-xl bg-slate-50 border border-slate-100 hover:shadow-lg transition-shadow">
-									<div class="w-12 h-12 bg-[var(--accent)] rounded-lg flex items-center justify-center text-[var(--accent-dark)] mb-4">
-										<i class={`${item.style} text-2xl`} />
-									</div>
-									<h3 class="text-xl font-bold mb-2">
-										{item.title}
-									</h3>
-									<p class="text-slate-600">
-										{item.description}
-									</p>
-								</div>
-							))
-						}
-					</div>
-				</div>
-			</section>
-		</main>
-		<Footer />
-	</body>
+            <!-- Featured Section (Placeholder for future projects) -->
+            <section class="py-20 bg-white">
+                <div class="container mx-auto px-6 max-w-7xl">
+                    <h2
+                        class="text-3xl font-bold text-slate-900 mb-12 text-center"
+                    >
+                        What I Do
+                    </h2>
+                    <div class="grid md:grid-cols-4 gap-8">
+                        {
+                            whatIDoData.map((item) => (
+                                <div class="p-6 rounded-xl bg-slate-50 border border-slate-100 hover:shadow-lg transition-shadow">
+                                    <div class="w-12 h-12 bg-[var(--accent-dark)] rounded-lg flex items-center justify-center text-[var(--accent)] mb-4">
+                                        <i class={`${item.style} text-2xl`} />
+                                    </div>
+                                    <h3 class="text-xl font-bold mb-2">
+                                        {item.title}
+                                    </h3>
+                                    <p class="text-slate-600">
+                                        {item.description}
+                                    </p>
+                                </div>
+                            ))
+                        }
+                    </div>
+                </div>
+            </section>
+        </main>
+        <Footer />
+    </body>
 </html>

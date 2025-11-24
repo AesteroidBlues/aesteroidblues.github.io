@@ -7,7 +7,7 @@
 @import "tailwindcss";
 
 :root {
-	--accent: #71B280;
+	--accent: #8bd49c;
 	--accent-dark: #134E5E;
 	--accent-gradient: linear-gradient(45deg, #71B280, #134E5E);
 	--black: 15, 18, 25;
