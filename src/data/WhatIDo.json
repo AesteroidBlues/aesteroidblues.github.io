@@ -1,17 +1,22 @@
 [
     {
-        "title": "Gameplay Programming",
-        "description": "Crafting responsive and satisfying player mechanics that feel just right.",
+        "title": "Gameplay",
+        "description": "Collaborating across disciplines to create unforgettable experiences.",
         "style": "fa-solid fa-gamepad"
     },
     {
         "title": "Tools",
-        "description": "Building robust tools that empower designers and artists.",
+        "description": "Building robust tools and pipelines that empower designers and artists.",
         "style": "fa-solid fa-hammer"
     },
     {
+        "title": "Systems",
+        "description": "Writing robust game systems that scale to millions of players.",
+        "style": "fa-solid fa-gears"
+    },
+    {
         "title": "Performance",
-        "description": "Optimizing code to ensure smooth frame rates on any device.",
+        "description": "Profiling and optimizing code to ensure smooth frame rates on any device.",
         "style": "fa-solid fa-gauge-high"
     }
 ]
