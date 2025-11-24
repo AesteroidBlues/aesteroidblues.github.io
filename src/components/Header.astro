@@ -3,79 +3,151 @@ import { SITE_TITLE } from "../consts";
 import HeaderLink from "./HeaderLink.astro";
 ---
 
-<header>
-    <nav>
-        <h2><a href="/">{SITE_TITLE}</a></h2>
-        <div class="internal-links">
-            <HeaderLink href="/">Home</HeaderLink>
-            <HeaderLink href="/blog">Blog</HeaderLink>
-            <HeaderLink href="/about">About</HeaderLink>
+<header class="m-0 px-4 py-0 bg-white shadow-sm z-10 relative">
+    <nav class="flex items-center justify-between max-w-5xl mx-auto h-16">
+        <h3 class="m-0 text-base md:text-lg font-bold pt-2">
+            <a href="/" class="text-slate-900 no-underline hover:text-slate-700"
+                >Alex<span
+                    class="bg-clip-text text-transparent bg-[image:var(--accent-gradient)]"
+                    >Makes.</span
+                >Games</a
+            >
+        </h3>
+
+        <!-- Desktop Navigation -->
+        <div class="internal-links gap-4 hidden md:flex">
+            <HeaderLink
+                href="/"
+                class="text-slate-900 hover:text-teal-600 font-medium"
+                >Home</HeaderLink
+            >
+            <HeaderLink
+                href="/work"
+                class="text-slate-900 hover:text-teal-600 font-medium"
+                >Work</HeaderLink
+            >
+            <HeaderLink
+                href="/portfolio"
+                class="text-slate-900 hover:text-teal-600 font-medium"
+                >Portfolio</HeaderLink
+            >
+            <HeaderLink
+                href="/blog"
+                class="text-slate-900 hover:text-teal-600 font-medium"
+                >Blog</HeaderLink
+            >
         </div>
-        <div class="social-links">
+
+        <!-- Desktop Social Links -->
+        <div class="social-links gap-4 hidden md:flex">
             <a
                 rel=""
                 target="_blank"
                 href="https://www.linkedin.com/in/alexferbrache/"
-                class="text-4xl"
-                ><i class="fa-brands fa-linkedin"></i>
+                class="text-slate-600 hover:text-slate-900 transition-colors"
+                ><span class="sr-only">LinkedIn</span>
+                <i class="fa-brands fa-linkedin text-2xl"></i>
             </a>
 
             <a
                 rel=""
                 target="_blank"
                 href="https://bsky.app/profile/alexmakes.games"
-                class="text-4xl"
-                ><i class="fa-brands fa-bluesky"></i>
+                class="text-slate-600 hover:text-slate-900 transition-colors"
+                ><span class="sr-only">Bluesky</span>
+                <i class="fa-brands fa-bluesky text-2xl"></i>
             </a>
 
             <a
                 rel=""
                 target="_blank"
                 href="mailto:alex@alexmakes.games"
-                class="text-4xl"
-                ><i class="fa-solid fa-envelope"></i>
+                class="text-slate-600 hover:text-slate-900 transition-colors"
+                ><span class="sr-only">Email</span>
+                <i class="fa-solid fa-envelope text-2xl"></i>
             </a>
         </div>
-    </nav>
-</header>
-<style>
-    header {
-        margin: 0;
-        padding: 0 1em;
-        background: white;
-        box-shadow: 0 2px 8px rgba(var(--black), 5%);
-    }
-    h2 {
-        margin: 0;
-        font-size: 1em;
-    }
 
-    h2 a,
-    h2 a.active {
-        text-decoration: none;
+        <!-- Mobile Menu Button -->
+        <button
+            id="mobile-menu-btn"
+            class="md:hidden text-slate-900 focus:outline-none pt-2 pr-2"
+            aria-label="Toggle Menu"
+        >
+            <i class="fa-solid fa-bars text-3xl"></i>
+        </button>
+    </nav>
+
+    <!-- Mobile Menu Overlay -->
+    <div
+        id="mobile-menu"
+        class="hidden md:hidden absolute top-16 left-0 w-full bg-white shadow-lg border-t border-slate-100 py-4 px-4 flex flex-col gap-4"
+    >
+        <div class="flex flex-col gap-4">
+            <a
+                href="/"
+                class="text-slate-900 hover:text-teal-600 font-medium text-lg py-2 border-b border-slate-50"
+                >Home</a
+            >
+            <a
+                href="/work"
+                class="text-slate-900 hover:text-teal-600 font-medium text-lg py-2 border-b border-slate-50"
+                >Work</a
+            >
+            <a
+                href="/portfolio"
+                class="text-slate-900 hover:text-teal-600 font-medium text-lg py-2 border-b border-slate-50"
+                >Portfolio</a
+            >
+            <a
+                href="/blog"
+                class="text-slate-900 hover:text-teal-600 font-medium text-lg py-2 border-b border-slate-50"
+                >Blog</a
+            >
+        </div>
+        <div class="flex gap-6 justify-center mt-2">
+            <a
+                href="https://www.linkedin.com/in/alexferbrache/"
+                target="_blank"
+                class="text-slate-600 hover:text-slate-900"
+            >
+                <i class="fa-brands fa-linkedin text-2xl"></i>
+            </a>
+            <a
+                href="https://bsky.app/profile/alexmakes.games"
+                target="_blank"
+                class="text-slate-600 hover:text-slate-900"
+            >
+                <i class="fa-brands fa-bluesky text-2xl"></i>
+            </a>
+            <a
+                href="mailto:alex@alexmakes.games"
+                target="_blank"
+                class="text-slate-600 hover:text-slate-900"
+            >
+                <i class="fa-solid fa-envelope text-2xl"></i>
+            </a>
+        </div>
+    </div>
+</header>
+
+<script>
+    const btn = document.getElementById("mobile-menu-btn");
+    const menu = document.getElementById("mobile-menu");
+
+    if (btn && menu) {
+        btn.addEventListener("click", () => {
+            menu.classList.toggle("hidden");
+            const icon = btn.querySelector("i");
+            if (icon) {
+                if (menu.classList.contains("hidden")) {
+                    icon.classList.remove("fa-xmark");
+                    icon.classList.add("fa-bars");
+                } else {
+                    icon.classList.remove("fa-bars");
+                    icon.classList.add("fa-xmark");
+                }
+            }
+        });
     }
-    nav {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-    }
-    nav a {
-        padding: 1em 0.5em;
-        color: var(--black);
-        border-bottom: 4px solid transparent;
-        text-decoration: none;
-    }
-    nav a.active {
-        text-decoration: none;
-        border-bottom-color: var(--accent);
-    }
-    .social-links,
-    .social-links a {
-        display: flex;
-    }
-    @media (max-width: 720px) {
-        .social-links {
-            display: none;
-        }
-    }
-</style>
+</script>

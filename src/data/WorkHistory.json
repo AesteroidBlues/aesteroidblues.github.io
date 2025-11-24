@@ -1,0 +1,81 @@
+[
+    {
+        "title": "Senior Software Engineer",
+        "company": "Microsoft - Turn 10 Studios",
+        "location": "Remote",
+        "dates": "2018 - 2025",
+        "logo": "Turn10.svg",
+        "logo_alt": "Turn 10 Studios Logo",
+        "description": "Gameplay engineering from pre-production to launch on Forza Motorsport. Shipped features and fixes monthly in a custom C++ game engine as part of a Games as a Service (GaaS) live program.",
+        "bullets": [
+            "Implemented key post-launch gameplay changes to the Car Upgrade System, resulting in 13% improvement in Steam \"Recent Review\" score month-over-month.",
+            "Architected a new content authoring workflow, allowing designers to create and deploy new race events as CMS content resulting in a 200% improvement to designer iteration time.",
+            "Mentored 2 junior engineers by leading technical roundtables and providing detailed code reviews.",
+            "Collaborated with design, cinematics, UI, game systems, and rendering teams to prototype a new interactive player homespace experience with deep customization features.",
+            "Developed live features in the game client which scaled flawlessly to millions of players on launch day. Worked closely with the services team to profile and address REST API bottlenecks during development.",
+            "Partnered closely with designers to build a new on-track progression system, translating high-level design intent into a technically feasible implementation.",
+            "Led a strike team of 4 engineers to address quality issues with screen transitions for launch. Worked with producers to triage, prioritize and assign issues according to a tight ship schedule.",
+            "Built a challenge-based unlock system for awarding players in-game currency, cars, and Xbox and Steam achievements based on their performance in the game."
+        ]
+    },
+    {
+        "title": "Software Engineer II",
+        "company": "Microsoft - Xbox Live",
+        "location": "Redmond, WA",
+        "dates": "2017 - 2019",
+        "logo": "Xbox.svg",
+        "logo_alt": "Xbox Logo",
+        "description": "Reliably shipped features and bug fixes on a monthly schedule to the XSAPI SDK.",
+        "bullets": [
+            "Built and maintained the web front-end for a new sign in / sign up flow for multi-platform Xbox Live using Javascript, HTML, CSS and webpack.",
+            "Created Unreal Engine prototypes, building code samples and engine demos for studios partners.",
+            "Wrote test applications in C++, Java and Objective-C that the XSAPI team used daily for feature development on Windows, Android and iOS ecosystems."
+        ]
+    },
+    {
+        "title": "Freelance Programmer",
+        "company": "Self-Employed",
+        "location": "San Diego, CA",
+        "dates": "2016 - 2017",
+        "logo": "",
+        "description": "Created async turn-based multiplayer mode for Gear VR strategy game Skylight. Implemented an entire multiplayer experience in Unity supported by cloud session saving using Heroku and Redis.",
+        "bullets": []
+    },
+    {
+        "title": "Software Engineer",
+        "company": "Pocketwatch Games",
+        "location": "San Diego, CA",
+        "dates": "2014 - 2016",
+        "logo": "Pocketwatch.svg",
+        "logo_alt": "Pocketwatch Games Logo",
+        "description": "Gameplay and UI engineering, game design, and community management for the indie RTS title Tooth and Tail.",
+        "bullets": [
+            "Designed and implemented deterministic multiplayer gameplay and AI combat systems for an RTS title built in C# and XNA, operating under strict lock-step networking constraints.",
+            "Developed a novel automated build and deploy pipeline allowing a studio of 3 to effortlessly push builds and patches to the community."
+        ]
+    },
+    {
+        "title": "Solutions Engineer",
+        "company": "Provide Commerce",
+        "location": "San Diego, CA",
+        "dates": "2014",
+        "logo": "",
+        "description": "Full stack web development for an e-commerce gift retailer using ASP.NET, MVC, HTML, Javascript and LESS.",
+        "bullets": [
+            "Frontend and backend web development using ASP.NET MVC and LESS to support major responsive overhaul to ProFlowers order process pages.",
+            "Architecture and development on QA automation platform using Selenium and Visual Studio. Implemented Page-Object model to create reusable test-platform for web regression testing."
+        ]
+    },
+    {
+        "title": "Programmer Analyst",
+        "company": "UC San Diego Division of Biomedical Informatics",
+        "location": "San Diego, CA",
+        "dates": "2012 - 2014",
+        "logo": "ucsd-seal.svg",
+        "logo_alt": "Seal of the University of California, San Diego",
+        "description": "Developed a full stack solution for efficiently uploading gigabytes of biomedical data to a secure analysis endpoint using multi-threaded Javascript and Node.js.",
+        "bullets": [
+            "Co-Author: “MAGI: a Node.js web service for fast microRNA-Seq analysis in a GPU infrastructure.” Bioinformatics 2014; 30 (19): 2826-2827."
+        ]
+    }
+]

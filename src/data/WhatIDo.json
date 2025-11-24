@@ -1,0 +1,17 @@
+[
+    {
+        "title": "Gameplay Programming",
+        "description": "Crafting responsive and satisfying player mechanics that feel just right.",
+        "style": "fa-solid fa-gamepad"
+    },
+    {
+        "title": "Tools",
+        "description": "Building robust tools that empower designers and artists.",
+        "style": "fa-solid fa-hammer"
+    },
+    {
+        "title": "Performance",
+        "description": "Optimizing code to ensure smooth frame rates on any device.",
+        "style": "fa-solid fa-gauge-high"
+    }
+]

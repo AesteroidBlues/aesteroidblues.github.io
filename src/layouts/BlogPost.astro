@@ -14,68 +14,29 @@ const { title, description, pubDate, updatedDate, heroImage } = Astro.props;
 <html lang="en">
 	<head>
 		<BaseHead title={title} description={description} />
-		<style>
-			main {
-				width: calc(100% - 2em);
-				max-width: 100%;
-				margin: 0;
-			}
-			.hero-image {
-				width: 100%;
-			}
-			.hero-image img {
-				display: block;
-				margin: 0 auto;
-				border-radius: 12px;
-				box-shadow: var(--box-shadow);
-			}
-			.prose {
-				width: 720px;
-				max-width: calc(100% - 2em);
-				margin: auto;
-				padding: 1em;
-				color: rgb(var(--gray-dark));
-			}
-			.title {
-				margin-bottom: 1em;
-				padding: 1em 0;
-				text-align: center;
-				line-height: 1;
-			}
-			.title h1 {
-				margin: 0 0 0.5em 0;
-			}
-			.date {
-				margin-bottom: 0.5em;
-				color: rgb(var(--gray));
-			}
-			.last-updated-on {
-				font-style: italic;
-			}
-		</style>
 	</head>
 
-	<body>
+	<body class="bg-white text-slate-900">
 		<Header />
-		<main>
-			<article>
-				<div class="hero-image">
-					{heroImage && <Image width={1020} height={510} src={heroImage} alt="" />}
+		<main class="w-full max-w-4xl mx-auto px-4 py-12">
+			<article class="prose prose-slate lg:prose-lg mx-auto">
+				<div class="hero-image mb-8">
+					{heroImage && <Image width={1020} height={510} src={heroImage} alt="" class="rounded-xl shadow-lg w-full" />}
 				</div>
-				<div class="prose">
-					<div class="title">
-						<div class="date">
+				<div class="prose-content">
+					<div class="title text-center mb-12">
+						<div class="date text-slate-500 mb-2">
 							<FormattedDate date={pubDate} />
 							{
 								updatedDate && (
-									<div class="last-updated-on">
+									<div class="last-updated-on italic">
 										Last updated on <FormattedDate date={updatedDate} />
 									</div>
 								)
 							}
 						</div>
-						<h1>{title}</h1>
-						<hr />
+						<h1 class="text-4xl md:text-5xl font-bold text-slate-900 mb-4">{title}</h1>
+						<hr class="border-slate-200 my-4" />
 					</div>
 					<slot />
 				</div>

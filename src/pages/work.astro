@@ -1,0 +1,98 @@
+---
+import BaseHead from '../components/BaseHead.astro';
+import Footer from '../components/Footer.astro';
+import Header from '../components/Header.astro';
+import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
+import workHistory from '../data/WorkHistory.json';
+import gameCredits from '../data/GameCredits.json';
+---
+
+<!doctype html>
+<html lang="en">
+	<head>
+		<BaseHead title={`Work | ${SITE_TITLE}`} description={SITE_DESCRIPTION} />
+	</head>
+	<body class="bg-white text-slate-900">
+		<Header />
+		<main class="w-full max-w-5xl mx-auto px-4 py-12">
+			
+			<!-- Page Navigation -->
+			<nav class="flex justify-center gap-8 mb-12 border-b border-slate-200 pb-4">
+				<a href="#work-history" class="text-slate-600 hover:text-teal-600 font-medium transition-colors">Work History</a>
+				<a href="#game-credits" class="text-slate-600 hover:text-teal-600 font-medium transition-colors">Game Credits</a>
+			</nav>
+
+			<!-- Work History Section -->
+			<section id="work-history" class="mb-20 scroll-mt-24">
+				<h1 class="text-3xl font-bold text-slate-900 mb-8">Work History</h1>
+				<div class="space-y-8">
+					{workHistory.map((job) => (
+						<div class="flex flex-col md:flex-row gap-4 md:gap-6">
+							<!-- Logo Column -->
+							<div class="flex-shrink-0">
+								<div class="w-12 h-12 md:w-14 md:h-14 bg-slate-100 rounded-lg flex items-center justify-center overflow-hidden border border-slate-200">
+									{job.logo ? (
+										<img src={`/logos/${job.logo}`} alt={job.logo_alt || `${job.company} Logo`} class="w-full h-full object-contain p-1.5" />
+									) : (
+										<i class="fa-solid fa-briefcase text-slate-300 text-lg"></i>
+									)}
+								</div>
+							</div>
+							
+							<!-- Content Column -->
+							<div class="flex-1">
+								<div class="mb-2">
+									<h3 class="font-bold text-slate-900 leading-tight">{job.title}</h3>
+									<div class="text-slate-700 font-medium text-sm">{job.company}</div>
+									<div class="flex flex-wrap gap-x-3 text-xs mt-0.5">
+										<span class="text-blue-600 font-medium">{job.location}</span>
+										<span class="text-slate-400">•</span>
+										<span class="text-slate-500">{job.dates}</span>
+									</div>
+								</div>
+								
+								<p class="text-slate-600 mb-3 text-md leading-relaxed">{job.description}</p>
+								
+								<ul class="list-disc pl-4 space-y-1 text-slate-600 text-md leading-relaxed">
+									{job.bullets.map((item) => (
+										<li>{item}</li>
+									))}
+								</ul>
+							</div>
+						</div>
+					))}
+				</div>
+			</section>
+
+			<!-- Game Credits Section -->
+			<section id="game-credits" class="scroll-mt-24">
+				<h2 class="text-3xl font-bold text-slate-900 mb-8">Game Credits</h2>
+				<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+					{gameCredits.map((game) => (
+						<div class="bg-slate-50 rounded-xl overflow-hidden border border-slate-100 hover:shadow-md transition-shadow flex flex-col h-full">
+							<div class="h-40 bg-slate-200 flex items-center justify-center overflow-hidden relative">
+								{game['hero-image'] ? (
+									<img src={`/games/${game['hero-image']}`} alt={game.logo_alt || `${game.title} Cover`} class="w-full h-full object-cover" />
+								) : (
+									<div class="text-slate-400 flex flex-col items-center">
+										<i class="fa-solid fa-gamepad text-3xl mb-2"></i>
+										<span class="text-xs font-medium">No Image</span>
+									</div>
+								)}
+							</div>
+							<div class="p-5 flex-1 flex flex-col">
+								<div class="flex justify-between items-start mb-2">
+									<h3 class="text-lg font-bold text-slate-900">{game.title}</h3>
+									<span class="text-xs px-2 py-0.5 bg-slate-200 text-slate-600 rounded-full">{game.year}</span>
+								</div>
+								<p class="text-blue-600 font-medium text-sm mt-auto">{game.credit}</p>
+							</div>
+						</div>
+					))}
+				</div>
+			</section>
+
+		</main>
+		<Footer />
+	</body>
+</html>
