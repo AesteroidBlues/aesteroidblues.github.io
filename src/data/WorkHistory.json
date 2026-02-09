@@ -1,5 +1,17 @@
 [
     {
+        "title": "Senior Gameplay Engineer",
+        "company": "Obsidian Entertainment",
+        "location": "Irvine, CA",
+        "dates": "2026 - Present",
+        "logo": "obsidian.jpg",
+        "logo_alt": "Obsidian Entertainment Logo",
+        "description": "Gameplay prototyping and development on an unannounced title.",
+        "bullets": [
+            "Developing new gameplay features using Unreal Engine C++ and blueprints"
+        ]
+    },
+    {
         "title": "Senior Software Engineer",
         "company": "Microsoft - Turn 10 Studios",
         "location": "Remote",
