@@ -8,7 +8,6 @@ import tailwindcss from "@tailwindcss/vite";
 // https://astro.build/config
 export default defineConfig({
 	site: 'https://aesteroidblues.github.io',
-	base: '/alexmakes.games',
 	integrations: [mdx(), sitemap()],
 	vite: { plugins: [tailwindcss()], },
 });
