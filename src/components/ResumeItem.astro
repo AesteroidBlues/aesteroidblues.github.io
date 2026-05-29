@@ -1,0 +1,55 @@
+---
+import { Image } from 'astro:assets';
+import type { ImageMetadata } from 'astro';
+
+interface Props {
+  title: string;
+  company: string;
+  location: string;
+  dates: string;
+  description: string;
+  bullets: string[];
+  logo?: string;
+  logo_alt?: string;
+}
+
+const { title, company, location, dates, description, bullets, logo, logo_alt } = Astro.props;
+
+const logos = import.meta.glob<{ default: ImageMetadata }>('/src/assets/logos/**/*.{jpg,jpeg,png,webp,svg}');
+const logoPath = logo ? `/src/assets/logos/${logo}` : null;
+const logoImage = logoPath && logos[logoPath] ? logos[logoPath] : null;
+---
+
+<div class="flex flex-col md:flex-row gap-4 md:gap-6">
+  <div class="flex-shrink-0">
+    <div class="w-12 h-12 md:w-14 md:h-14 bg-slate-100 rounded-lg flex items-center justify-center overflow-hidden border border-slate-200">
+      {logoImage ? (
+        <Image src={logoImage()} alt={logo_alt || `${company} Logo`} class="w-full h-full object-contain p-1.5" />
+      ) : (
+        <i class="fa-solid fa-briefcase text-slate-600 text-lg"></i>
+      )}
+    </div>
+  </div>
+
+  <div class="flex-1">
+    <div class="mb-2">
+      <h3 class="font-bold text-(--off-white) leading-tight">{title}</h3>
+      <div class="text-(--off-white)">{company}</div>
+      <div class="flex flex-wrap gap-x-3 text-sm mt-0.5">
+        <span class="text-(--off-white)">{location}</span>
+        <span class="text-(--off-white)">•</span>
+        <span class="text-(--off-white)">{dates}</span>
+      </div>
+    </div>
+
+    <p class="text-(--off-white) mb-3 text-md leading-relaxed">{description}</p>
+
+    {bullets.length > 0 && (
+      <ul class="list-disc pl-4 space-y-1 text-(--off-white) text-md leading-relaxed">
+        {bullets.map((item) => (
+          <li>{item}</li>
+        ))}
+      </ul>
+    )}
+  </div>
+</div>

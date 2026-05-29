@@ -1,0 +1,38 @@
+---
+import { Image } from 'astro:assets';
+import type { ImageMetadata } from 'astro';
+
+interface Props {
+  title: string;
+  year: string | number;
+  credit: string;
+  'hero-image'?: string;
+  logo_alt?: string;
+}
+
+const { title, year, credit, 'hero-image': heroImage, logo_alt } = Astro.props;
+
+const games = import.meta.glob<{ default: ImageMetadata }>('/src/assets/games/**/*.{jpg,jpeg,png,webp,svg}');
+const imagePath = heroImage ? `/src/assets/games/${heroImage}` : null;
+const gameImage = imagePath && games[imagePath] ? games[imagePath] : null;
+---
+
+<div class="bg-slate-50 rounded-xl overflow-hidden border border-slate-100 hover:shadow-md transition-shadow flex flex-col h-full">
+  <div class="h-40 bg-slate-200 flex items-center justify-center overflow-hidden relative">
+    {gameImage ? (
+      <Image src={gameImage()} alt={logo_alt || `${title} Cover`} class="w-full h-full object-cover" />
+    ) : (
+      <div class="text-slate-400 flex flex-col items-center">
+        <i class="fa-solid fa-gamepad text-3xl mb-2"></i>
+        <span class="text-xs font-medium">No Image</span>
+      </div>
+    )}
+  </div>
+  <div class="p-5 flex-1 flex flex-col">
+    <div class="flex justify-between items-start mb-2">
+      <h3 class="text-lg font-bold text-zinc-800">{title}</h3>
+      <span class="text-xs px-2 py-0.5 bg-slate-200 text-zinc-800 rounded-full">{year}</span>
+    </div>
+    <p class="font-medium text-md mt-auto text-zinc-800">{credit}</p>
+  </div>
+</div>

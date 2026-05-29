@@ -1,0 +1,23 @@
+[
+    {
+        "title": "Forza Motorsport",
+        "year": "2023",
+        "credit": "Senior Gameplay Software Engineer",
+        "hero-image": "forza.webp",
+        "logo_alt": "Logo of Forza Motorsport"
+    },
+    {
+        "title": "Skylight",
+        "year": "2017",
+        "credit": "Multiplayer Programmer",
+        "hero-image": "skylight.webp",
+        "logo_alt": "Logo of Skylight"
+    },
+    {
+        "title": "Tooth and Tail",
+        "year": "2017",
+        "credit": "Additional Programming",
+        "hero-image": "tnt.webp",
+        "logo_alt": "Logo of Tooth and Tail"
+    }
+]

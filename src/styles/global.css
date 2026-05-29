@@ -63,6 +63,7 @@
 	a:hover { color: var(--accent); }
 	p { margin-bottom: 1em; }
 	.prose p { margin-bottom: 2em; }
+	.prose ul { margin-bottom: 2em; }
 	textarea { width: 100%; font-size: 16px; }
 	input { font-size: 16px; }
 	table { width: 100%; }
@@ -74,6 +75,7 @@
 	code {
 		padding: 2px 5px;
 		background-color: rgb(var(--gray-dark));
+		color: var(--off-white);
 		border-radius: 2px;
 	}
 	pre {

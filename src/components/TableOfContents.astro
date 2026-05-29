@@ -1,0 +1,77 @@
+---
+---
+<aside id="toc-container" class="hidden xl:block w-64 shrink-0 self-start sticky top-16">
+	<nav
+		id="toc"
+		class="max-h-[calc(100vh-4rem)] overflow-y-auto text-sm"
+	>
+		<p class="mb-3 font-semibold text-[rgb(var(--gray-dark))] uppercase tracking-wider text-xs">
+			On this page
+		</p>
+		<ul id="toc-list" class="space-y-1 border-l border-[rgb(var(--gray-light))]"></ul>
+	</nav>
+</aside>
+
+<script>
+	function buildToc() {
+		const article = document.querySelector('article');
+		const list = document.getElementById('toc-list');
+		if (!article || !list) return;
+
+		const headings = Array.from(article.querySelectorAll('h1, h2, h3, h4'));
+		if (headings.length === 0) return;
+
+		// Assign IDs to headings that don't have one
+		headings.forEach((h, i) => {
+			if (!h.id) {
+				h.id = `heading-${i}`;
+			}
+		});
+
+		headings.forEach((h) => {
+			const level = parseInt(h.tagName[1]);
+			const indent = (level - 1) * 12;
+
+			const li = document.createElement('li');
+			const a = document.createElement('a');
+			a.href = `#${h.id}`;
+			a.textContent = h.textContent ?? '';
+			a.dataset.headingId = h.id;
+			a.style.paddingLeft = `${indent + 12}px`;
+			a.className =
+				'block py-1 pr-2 text-[rgb(var(--gray))] hover:text-[rgb(var(--accent))] transition-colors duration-150 leading-snug border-l-2 border-transparent -ml-px';
+			li.appendChild(a);
+			list.appendChild(li);
+		});
+
+		// Intersection observer -> highlight active heading
+		const links = list.querySelectorAll<HTMLAnchorElement>('a[data-heading-id]');
+
+		const observer = new IntersectionObserver(
+			(entries) => {
+				entries.forEach((entry) => {
+					const id = entry.target.id;
+					const link = list.querySelector<HTMLAnchorElement>(`a[data-heading-id="${id}"]`);
+					if (!link) return;
+					if (entry.isIntersecting) {
+						links.forEach((l) =>
+							l.classList.replace('border-[rgb(var(--accent))]', 'border-transparent')
+						);
+						link.classList.replace('border-transparent', 'border-[rgb(var(--accent))]');
+						link.classList.add('text-[rgb(var(--accent))]');
+						link.classList.remove('text-[rgb(var(--gray))]');
+					} else {
+						link.classList.replace('border-[rgb(var(--accent))]', 'border-transparent');
+						link.classList.add('text-[rgb(var(--gray))]');
+						link.classList.remove('text-[rgb(var(--accent))]');
+					}
+				});
+			},
+			{ rootMargin: '0px 0px -80% 0px', threshold: 0 }
+		);
+
+		headings.forEach((h) => observer.observe(h));
+	}
+
+	buildToc();
+</script>
