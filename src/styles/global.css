@@ -1,7 +1,7 @@
 @import "tailwindcss";
 
 :root {
-	--accent: #2337ff;
+	--accent: oklch(68.5% 0.169 237.323);
 	--accent-dark: #000d8a;
 	--black: 15, 18, 25;
 	--white: 255, 255, 255;
@@ -18,6 +18,8 @@
 	--stripe-red: #c1483a;
 	--stripe-orange: #d37e46;
 	--stripe-yellow: #e4be5e;
+
+	--off-white: #dae5dc;
 }
 
 @layer base {
@@ -27,10 +29,11 @@
 		padding: 0;
 		text-align: left;
 		background: linear-gradient(to bottom, var(--seafoam-gradient)) no-repeat;
+		min-height: 100vh;
 		/* background-size: 100% 600px; */
 		word-wrap: break-word;
 		overflow-wrap: break-word;
-		color: rgb(var(--white));
+		color: var(--off-white);
 		font-size: 20px;
 		line-height: 1.7;
 	}
@@ -47,7 +50,7 @@
 	h5,
 	h6 {
 		margin: 0 0 0.5rem 0;
-		color: rgb(var(--white ));
+		color: var(--off-white);
 		line-height: 1.2;
 	}
 	h1 { font-size: 3.052em; }

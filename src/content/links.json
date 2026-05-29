@@ -1,0 +1,17 @@
+[
+  {
+    "icon": "fa-brands fa-bluesky",
+    "href": "https://bsky.app/profile/alexmakes.games",
+    "screenReaderText": "Follow Alex on Bluesky"
+  },
+  {
+    "icon": "fa-brands fa-itch-io",
+    "href": "https://alexferbrache.itch.io/",
+    "screenReaderText": "Alex's Itch.IO Games"
+  },
+  {
+    "icon": "fa-brands fa-github",
+    "href": "https://github.com/AesteroidBlues",
+    "screenReaderText": "Alex's GitHub"
+  }
+]
