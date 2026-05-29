@@ -13,5 +13,10 @@
     "icon": "fa-brands fa-github",
     "href": "https://github.com/AesteroidBlues",
     "screenReaderText": "Alex's GitHub"
+  },
+  {
+    "icon": "fa-brands fa-linkedin",
+    "href": "https://www.linkedin.com/in/alexferbrache/",
+    "screenReaderText": "Alex on LinkedIn"
   }
 ]

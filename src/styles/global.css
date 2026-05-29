@@ -14,7 +14,7 @@
 		0 16px 32px rgba(var(--gray), 33%);
 	--seafoam: #30555d;
 	--seafoam-dark: #1e2d3d;
-	--seafoam-gradient: var(--seafoam) 0%, var(--seafoam-dark) 100%;
+	--seafoam-gradient: linear-gradient(to bottom, var(--seafoam), var(--seafoam-dark));
 	--stripe-red: #c1483a;
 	--stripe-orange: #d37e46;
 	--stripe-yellow: #e4be5e;
@@ -23,12 +23,27 @@
 }
 
 @layer base {
+	html {
+		box-sizing: border-box;
+		position: relative;
+		&::after {
+			content: "";
+			position: fixed;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			background-image: var(--seafoam-gradient);
+			z-index: -1;
+		}
+	}
+
 	body {
 		font-family: var(--font-atkinson);
 		margin: 0;
 		padding: 0;
 		text-align: left;
-		background: linear-gradient(to bottom, var(--seafoam-gradient)) no-repeat;
+		background-image: var(--seafoam-gradient) no-repeat;
 		min-height: 100vh;
 		/* background-size: 100% 600px; */
 		word-wrap: break-word;
@@ -58,12 +73,19 @@
 	h3 { font-size: 1.953em; }
 	h4 { font-size: 1.563em; }
 	h5 { font-size: 1.25em; }
+
+	.prose h1 { font-size: 2.441em; }
+	.prose h2 { font-size: 1.953em; }
+	.prose h3 { font-size: 1.563em; }
+	.prose h4 { font-size: 1.25em; }
+	.prose h5 { font-size: 1.15em; }
+
 	strong, b { font-weight: 700; }
 	a { color: var(--accent); }
 	a:hover { color: var(--accent); }
 	p { margin-bottom: 1em; }
-	.prose p { margin-bottom: 2em; }
-	.prose ul { margin-bottom: 2em; }
+	.prose p { margin-bottom: 1.5em; }
+	.prose ul { margin-bottom: 1.5em; }
 	textarea { width: 100%; font-size: 16px; }
 	input { font-size: 16px; }
 	table { width: 100%; }

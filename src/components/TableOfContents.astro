@@ -5,7 +5,7 @@
 		id="toc"
 		class="max-h-[calc(100vh-4rem)] overflow-y-auto text-sm"
 	>
-		<p class="mb-3 font-semibold text-[rgb(var(--gray-dark))] uppercase tracking-wider text-xs">
+		<p class="mb-3 font-semibold text-(--off-white) uppercase tracking-wider text-xs">
 			On this page
 		</p>
 		<ul id="toc-list" class="space-y-1 border-l border-[rgb(var(--gray-light))]"></ul>
@@ -44,33 +44,36 @@
 			list.appendChild(li);
 		});
 
-		// Intersection observer -> highlight active heading
 		const links = list.querySelectorAll<HTMLAnchorElement>('a[data-heading-id]');
 
-		const observer = new IntersectionObserver(
-			(entries) => {
-				entries.forEach((entry) => {
-					const id = entry.target.id;
-					const link = list.querySelector<HTMLAnchorElement>(`a[data-heading-id="${id}"]`);
-					if (!link) return;
-					if (entry.isIntersecting) {
-						links.forEach((l) =>
-							l.classList.replace('border-[rgb(var(--accent))]', 'border-transparent')
-						);
-						link.classList.replace('border-transparent', 'border-[rgb(var(--accent))]');
-						link.classList.add('text-[rgb(var(--accent))]');
-						link.classList.remove('text-[rgb(var(--gray))]');
-					} else {
-						link.classList.replace('border-[rgb(var(--accent))]', 'border-transparent');
-						link.classList.add('text-[rgb(var(--gray))]');
-						link.classList.remove('text-[rgb(var(--accent))]');
-					}
-				});
-			},
-			{ rootMargin: '0px 0px -80% 0px', threshold: 0 }
-		);
+		function setActive(id: string) {
+			links.forEach((l) => {
+				const active = l.dataset.headingId === id;
+				l.classList.toggle('border-[rgb(var(--accent))]', active);
+				l.classList.toggle('border-transparent', !active);
+				l.classList.toggle('text-[rgb(var(--accent))]', active);
+				l.classList.toggle('text-[rgb(var(--gray))]', !active);
+			});
+		}
 
-		headings.forEach((h) => observer.observe(h));
+		function onScroll() {
+			const atBottom = window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 8;
+			if (atBottom) {
+				setActive(headings[headings.length - 1].id);
+				return;
+			}
+			const scrollY = window.scrollY;
+			let active = headings[0];
+			for (const h of headings) {
+				if (h.getBoundingClientRect().top + scrollY <= scrollY + window.innerHeight * 0.25) {
+					active = h;
+				}
+			}
+			if (active) setActive(active.id);
+		}
+
+		window.addEventListener('scroll', onScroll, { passive: true });
+		onScroll();
 	}
 
 	buildToc();
