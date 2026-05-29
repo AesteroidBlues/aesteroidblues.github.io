@@ -18,7 +18,7 @@ import links from '../content/links.json';
 		</div>
 		<div class="pr-8 hidden md:flex gap-2">
 			{links.map((link: { href: string; icon: string; screenReaderText: string }) => (
-				<a href={link.href} target="_blank" class="flex text-(--off-white) hover:text-teal-500">
+				<a href={link.href} target="_blank" class="flex text-(--off-white) hover:text-[var(--accent)]">
 					<span class="sr-only">{link.screenReaderText}</span>
 					<i class={`${link.icon} text-2xl`} aria-hidden="true"></i>
 				</a>

@@ -46,13 +46,13 @@ const posts = (await getCollection('blog')).sort(
 									)}
 									<h4
 										class:list={[
-											'm-0 text-[rgb(var(--black))] leading-none group-hover:text-[var(--accent)] transition-colors duration-200',
+											'm-0 text-(--off-white) leading-none group-hover:text-[var(--accent)] transition-colors duration-200',
 											index === 0 && 'text-[2.369rem]',
 										]}
 									>
 										{post.data.title}
 									</h4>
-									<p class="m-0 text-[rgb(var(--gray))] group-hover:text-[var(--accent)] transition-colors duration-200">
+									<p class="m-0 text-(--off-white) group-hover:text-[var(--accent)] transition-colors duration-200">
 										<FormattedDate date={post.data.pubDate} />
 									</p>
 								</a>

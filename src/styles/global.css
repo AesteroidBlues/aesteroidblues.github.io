@@ -1,7 +1,7 @@
 @import "tailwindcss";
 
 :root {
-	--accent: oklch(68.5% 0.169 237.323);
+	--accent: oklch(70.4% 0.14 182.503);
 	--accent-dark: #000d8a;
 	--black: 15, 18, 25;
 	--white: 255, 255, 255;
