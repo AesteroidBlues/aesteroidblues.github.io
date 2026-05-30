@@ -1,0 +1,201 @@
+---
+import { Image } from 'astro:assets';
+
+interface GalleryImage {
+  src: string | ImageMetadata;
+  alt: string;
+  caption?: string;
+  thumbnail?: string | ImageMetadata;
+}
+
+interface Props {
+  images: GalleryImage[];
+  columns?: 2 | 3 | 4;
+}
+
+const { images, columns = 3 } = Astro.props;
+const id = `gallery-${Math.random().toString(36).slice(2, 9)}`;
+
+const colClass = {
+  2: 'grid-cols-2',
+  3: 'grid-cols-2 sm:grid-cols-3',
+  4: 'grid-cols-2 sm:grid-cols-4',
+}[columns];
+
+function isAnimated(src: string | ImageMetadata): boolean {
+  const path = typeof src === 'string' ? src : src.src;
+  return /\.(gif)$/i.test(path);
+}
+
+function rawSrc(src: string | ImageMetadata): string {
+  return typeof src === 'string' ? src : src.src;
+}
+---
+
+<div class={`grid ${colClass} gap-2 my-6`} data-gallery={id}>
+  {images.map((img, i) => {
+    const thumbSrc = img.thumbnail ?? img.src;
+    const useRaw = isAnimated(thumbSrc) || typeof thumbSrc === 'string';
+    return (
+      <button
+        class="group relative overflow-hidden rounded-lg bg-zinc-800 cursor-zoom-in focus:outline-none focus-visible:ring-2 focus-visible:ring-white"
+        data-gallery-trigger={id}
+        data-index={i}
+        aria-label={img.alt}
+        type="button"
+      >
+        {useRaw ? (
+          <img
+            src={rawSrc(thumbSrc)}
+            alt={img.alt}
+            class="w-full h-full object-cover aspect-square transition-transform duration-300 group-hover:scale-105"
+            loading="lazy"
+            decoding="async"
+          />
+        ) : (
+          <Image
+            src={thumbSrc as ImageMetadata}
+            alt={img.alt}
+            class="w-full h-full object-cover aspect-square transition-transform duration-300 group-hover:scale-105"
+            loading="lazy"
+            decoding="async"
+            width={400}
+          />
+        )}
+        {img.caption && (
+          <span class="absolute bottom-0 inset-x-0 bg-black/60 text-white text-xs px-2 py-1 translate-y-full group-hover:translate-y-0 transition-transform duration-200 truncate">
+            {img.caption}
+          </span>
+        )}
+        {isAnimated(img.src) && !img.thumbnail && (
+          <span class="absolute top-2 right-2 bg-black/60 text-white text-[10px] font-mono px-1.5 py-0.5 rounded">
+            GIF
+          </span>
+        )}
+      </button>
+    );
+  })}
+</div>
+
+<!-- Lightbox -->
+<div
+  id={`lightbox-${id}`}
+  class="fixed inset-0 z-50 hidden items-center justify-center bg-black/90 backdrop-blur-sm"
+  data-lightbox={id}
+  role="dialog"
+  aria-modal="true"
+  aria-label="Image lightbox"
+>
+  <div class="absolute inset-0" data-backdrop></div>
+
+  <button
+    class="absolute top-4 right-4 z-10 flex items-center justify-center w-10 h-10 rounded-full bg-white/10 hover:bg-white/20 text-white transition-colors"
+    data-close
+    aria-label="Close"
+    type="button"
+  >
+    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+      <line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/>
+    </svg>
+  </button>
+
+  <button
+    class="absolute left-3 z-10 flex items-center justify-center w-11 h-11 rounded-full bg-white/10 hover:bg-white/20 text-white transition-colors disabled:opacity-20 disabled:cursor-not-allowed"
+    data-prev
+    aria-label="Previous image"
+    type="button"
+  >
+    <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+      <polyline points="15 18 9 12 15 6"/>
+    </svg>
+  </button>
+
+  <div class="relative z-10 flex flex-col items-center max-w-[90vw] max-h-[90vh] pointer-events-none">
+    <div data-lightbox-spinner class="absolute inset-0 flex items-center justify-center">
+      <div class="w-8 h-8 border-2 border-white/20 border-t-white rounded-full animate-spin"></div>
+    </div>
+    <img
+      data-lightbox-img
+      src=""
+      alt=""
+      class="max-w-full max-h-[80vh] object-contain rounded-lg shadow-2xl opacity-0 transition-opacity duration-200"
+    />
+    <p data-lightbox-caption class="mt-3 text-white/70 text-sm text-center hidden"></p>
+    <p data-lightbox-counter class="mt-1 text-white/40 text-xs"></p>
+  </div>
+
+  <button
+    class="absolute right-3 z-10 flex items-center justify-center w-11 h-11 rounded-full bg-white/10 hover:bg-white/20 text-white transition-colors disabled:opacity-20 disabled:cursor-not-allowed"
+    data-next
+    aria-label="Next image"
+    type="button"
+  >
+    <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+      <polyline points="9 18 15 12 9 6"/>
+    </svg>
+  </button>
+</div>
+
+<script define:vars={{ id, images }}>
+  const lightbox = document.getElementById(`lightbox-${id}`);
+  const lbImg = lightbox.querySelector('[data-lightbox-img]');
+  const lbSpinner = lightbox.querySelector('[data-lightbox-spinner]');
+  const lbCaption = lightbox.querySelector('[data-lightbox-caption]');
+  const lbCounter = lightbox.querySelector('[data-lightbox-counter]');
+  const prevBtn = lightbox.querySelector('[data-prev]');
+  const nextBtn = lightbox.querySelector('[data-next]');
+
+  let current = 0;
+
+  function show(index) {
+    current = (index + images.length) % images.length;
+    const item = images[current];
+    const src = typeof item.src === 'string' ? item.src : item.src.src;
+
+    lbImg.classList.add('opacity-0');
+    lbSpinner.classList.remove('hidden');
+
+    lbImg.onload = () => {
+      lbSpinner.classList.add('hidden');
+      lbImg.classList.remove('opacity-0');
+    };
+    lbImg.src = src;
+    lbImg.alt = item.alt;
+
+    if (item.caption) {
+      lbCaption.textContent = item.caption;
+      lbCaption.classList.remove('hidden');
+    } else {
+      lbCaption.classList.add('hidden');
+    }
+    lbCounter.textContent = `${current + 1} / ${images.length}`;
+    prevBtn.disabled = images.length <= 1;
+    nextBtn.disabled = images.length <= 1;
+    lightbox.classList.remove('hidden');
+    lightbox.classList.add('flex');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function close() {
+    lightbox.classList.add('hidden');
+    lightbox.classList.remove('flex');
+    lbImg.src = '';
+    document.body.style.overflow = '';
+  }
+
+  document.querySelectorAll(`[data-gallery-trigger="${id}"]`).forEach(btn => {
+    btn.addEventListener('click', () => show(Number(btn.dataset.index)));
+  });
+
+  prevBtn.addEventListener('click', () => show(current - 1));
+  nextBtn.addEventListener('click', () => show(current + 1));
+  lightbox.querySelector('[data-close]').addEventListener('click', close);
+  lightbox.querySelector('[data-backdrop]').addEventListener('click', close);
+
+  document.addEventListener('keydown', e => {
+    if (lightbox.classList.contains('hidden')) return;
+    if (e.key === 'Escape') close();
+    if (e.key === 'ArrowLeft') show(current - 1);
+    if (e.key === 'ArrowRight') show(current + 1);
+  });
+</script>

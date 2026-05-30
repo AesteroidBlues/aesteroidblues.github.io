@@ -1,0 +1,98 @@
+---
+title: 'Revisiting My First Games'
+description: 'Building fast and cheap debug menus and tools with DearImGUI in MonoGame'
+pubDate: 'May 20 2026'
+heroImage: 'img/murderhouse2.png'
+---
+
+import ImageGallery from '../../../components/ImageGallery.astro';
+
+import itbtitle from './img/itb-title.png';
+import itbbuild from './img/itb-build-screen.gif';
+import itbcombat from './img/itb-combat.webp';
+
+import laserpanda from './img/pandagoseek.jpg';
+import pgs1 from './img/pgs1.webp';
+import pgs2 from './img/pgs2.webp';
+import laserpanda2 from './img/laserpanda2.jpeg'
+
+import ragius1 from './img/ragius_1.png';
+
+import laddersofhell from "./img/laddersofhell.jpg"
+
+import muderhouse from './img/muderhouse.png';
+import murderhouse2 from './img/murderhouse2.png';
+
+import eva1 from "./img/eva.jpg"
+import eva2 from "./img/eva2.jpg"
+import eva3 from "./img/eva3.jpg"
+
+import broadsides1 from './img/broadsides1.jpg';
+import broadsides2 from './img/broadsides2.jpg';
+import broadsides3 from './img/broadsides3.jpg';
+
+Many years ago when I was just starting out with game dev, I had just gotten accepted to UC San Diego and was looking for like minded folks to learn and grow with. In service of that, I started the [Video Game Development Club](https://www.vgdc.dev/) on campus. It turns out that making video games is a pretty popular area of interest for college students and the club enjoyed quite a bit of success, usually attracting at least 100 eager game makers at the beginning of the school year. (This, of course, would whittle down to less than a dozen eager game makers by the time finals rolled around).
+
+To my great surprise the club is still around and more active than ever! They're routinely pulling in high quality guest speakers and connecting with the industry in ways I never could have imagined. Recently, one of the officers reached out to me to ask about my history and some of the games I made while I was in college. I thought it might be good to document some of these games for posterity (and so I don't have to look too hard for screenshots when I'm feeling nostalgic). Please enjoy.
+
+## I'm The Boss
+This was an inversion of SHMUPS where you were the 'boss' for the level and could place enemy ships in a grid editor thing. The goal was to defeat the hero ship which gets progressively more powerful. It was built with Java with LWJGL since we were learning Java in our classes at the time. This was the project where I learned video games are basically just a `while` loop. This game actually had a pretty smart AI for the 'hero' ship which I can take no credit for. The gameplay is pretty uninteresting because as a player you basically sit there and watch it go.
+
+<ImageGallery images={[
+  { src: itbtitle, alt: 'Im The Boss screenshot 1' },
+  { src: itbbuild, alt: 'Im The Boss screenshot 2' },
+  { src: itbcombat, alt: 'Im The Boss screenshot 2' },
+]} />
+
+## Panda Go Seek
+I worked on this game with my now-wife Nicole for VGDC's first ever game jam. The premise was two pandas are playing hide-and-go-seek and you play as the hiding panda. This was written in C#/XNA and featured a patrolling AI panda that would spot you. The longer you could hide from it, the higher your score was. I used a red rectangle to debug the patrolling panda's detection length and thus VGDC mascot Laser Panda was born (big art credit to Liz Cai for the epic laser panda)
+
+<ImageGallery images={[
+    { src: pgs1, alt: 'Panda Go Seek' },
+    { src: pgs2, alt: 'Panda Go Seek' },
+    { src: laserpanda, alt: 'Panda Go Seek' },
+    { src: laserpanda2, alt: 'Laser Panda' }
+]} />
+
+## Ragius
+Ragius was Nicole and I's entry into the 2013 VGDC game jame. It's a game in which the players attempt to cause the most destruction possible in the level. The player's character emits a sphere of rage. When the robots floating around the level come in to contact with it, they go berserk and start breaking things. When they've been outside of the rage radius for too long, they go back to normal.
+
+<ImageGallery images={[
+    { src: ragius1, alt: 'Ragius' }
+]} />
+
+## Ladders of Hell
+I think this one was for a club game jam but I don't remember which one. I actually don't remember much at all other than it was a split-screen competitive climbing game. Two players competed in a symmetric procedurally generated 2d platforming challenge and the first to fall to the bottom of the screen lost.
+
+<ImageGallery images={[
+    { src: laddersofhell, alt: 'Ladders of Hell' }
+]} />
+
+## 1bb Muderhouse
+This was an entry for [Global Game Jam 2014](https://v3.globalgamejam.org/2014/games/1bb-murder-house) and I'm very happy with how it turned out. It was a 4 player split-screen werewolf-style game where one player was the murderer and had to take out the other 3 players before they could escape the murder house. Since everything was on one screen we had to be careful with how we presented information. The murderer knew they had that role because their controller rumbled in a heartbeat pattern. I'd like to think this was an early iteration of Among Us, we probably should have kept developing it!
+
+<ImageGallery images={[
+  { src: muderhouse, alt: 'Murderhouse screenshot 1' },
+  { src: murderhouse2, alt: 'Murderhouse screenshot 2' },
+]} />
+
+## Project Eva
+This was an ambitious project for a multiplayer physics-based arena shooter. Players would be in zero gravity and have use of jetpacks and a gravity hook that would let them hook onto asteroids and reposition themselves in deep space. This one is notable because in the process of testing the netcode I wrote a bug causing players to attempt to join a lobby in an infinite loop. This had the unfortunate side effect of DDOSing the Starbucks wifi I was connected to and bringing the internet down. During a fantasy football draft that other Starbucks patrons were participating in. Sorry guys. Shout out to Kyra Yang for the cool concept art!
+
+<ImageGallery images={[
+  { src: eva1, alt: 'Project Eva screenshot 1' },
+  { src: eva2, alt: 'Project Eva screenshot 2' },
+  { src: eva3, alt: 'Project Eva screenshot 2' }
+]} />
+
+## Broadsides
+I was fortunate enough to _ship_ this awesome game with a group of awesome folks for 2012's CSE 125 class. You can watch the full [video presentation](https://www.youtube.com/watch?v=7jBGM-GEC4k) on YouTube. Our "marketing" copy describes the game pretty well:
+> Avast ye scurvy sea-dogs! This be Broadsides, a game for two to eight players by team Photon Monks. In this game, you and your mateys do battle with pirate hunters, sea monsters, and each other to be crowned King of the Pirates! Only the pirate worth their salt will take the title, but gettin' the edge with upgrades to make yer ship faster and more powerful never hurt! So, do ye have the stones to be the most infamous pirate on the high seas, or are ye on a one way trip to Davy Jones' locker?
+
+<ImageGallery images={[
+  { src: broadsides1, alt: 'Broadsides' },
+  { src: broadsides2, alt: 'Broadsides' },
+  { src: broadsides3, alt: 'Broadsides' }
+]} />
+
+And that's sort of it! I'm sure there were more prototypes, design docs, and hopes and dreams that I didn't get to, but this was everything tangible that I could find. Thanks for reading!

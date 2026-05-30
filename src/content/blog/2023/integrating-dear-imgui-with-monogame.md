@@ -2,7 +2,7 @@
 title: 'Integrating Dear ImGui with Monogame'
 description: 'Building fast and cheap debug menus and tools with DearImGUI in MonoGame'
 pubDate: 'Jun 06 2023'
-heroImage: './img/cs-imgui.png'
+heroImage: 'img/cs-imgui.png'
 ---
 
 I've been messing around with gamedev on my M2 Mac and because I enjoy making things harder on myself apparently, I'm trying not to use Unity.
